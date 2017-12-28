@@ -6,7 +6,7 @@ Git Goodies
 ## [Installation](https://github.com/jherrane/gg/blob/master/install.sh)
 **Linux/OSX**
 ```sh
-curl -fsSL https://github.com/jherrane/gg/blob/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/jherrane/gg/master/install.sh | bash
 ```
 
 All this installation script does is download the `gg` script, make it an executable, and copy it to your $PATH (/usr/local/bin). For copying to your $PATH, it may require you to enter your password.
