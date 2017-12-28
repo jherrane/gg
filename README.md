@@ -1,7 +1,7 @@
 Git Goodies
 ===========
 
-`gg` is forked from [qw3ertman](https://github.com/qw3rtman/gg/) to add proper SSH functionalities for my own use. All other functionalities are the same, please see the original for all manuals etc.
+`gg` is forked from [qw3rtman](https://github.com/qw3rtman/gg/) to add proper SSH functionalities for my own use. All other functionalities are the same, please see the original for all manuals etc.
 
 ## [Installation](https://github.com/jherrane/gg/blob/master/install.sh)
 **Linux/OSX**
