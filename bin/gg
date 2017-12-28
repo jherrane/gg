@@ -231,10 +231,9 @@ clone() {
 	else
 		URL=(${1//:/ })
 		PROTOCOL=${URL[0]}
-
-		if [ "${URL[1]:0:2}" != "//" ]; then
-			username="$(git config --get gg.username)"
-
+		username="$(git config --get gg.username)"
+		
+		if [ "${URL[1]:0:2}" != "//" ] && [ "$PROTOCOL" != "ssh" ]; then
 			if [ -n "$username" ] && [[ ${URL[@]} != *\/* ]]; then
 				URL_FIXED="https://github.com/$username/${URL[@]}.git"
 			else
@@ -243,7 +242,11 @@ clone() {
 
 			PROTOCOL="https"
 		else
-			URL_FIXED="$1"
+			if [ -n "$username" ] && [[ ${URL[@]} != *\/* ]]; then
+				URL_FIXED="git@github.com:$username/${URL[1]}"
+			else
+				URL_FIXED="git@github.com:${URL[1]}"
+			fi
 		fi
 
 		notice "[~] Cloning from"
@@ -259,7 +262,7 @@ clone() {
 			URL_ARRAY=(${URL_FIXED//\// })
 			URL_LAST_PART=${URL_ARRAY[${#URL_ARRAY[@]} - 1]}
 
-			success_bold " ${URL_LAST_PART%????}.\n"
+			success_bold " ${URL_LAST_PART}.\n"
 		else
 			whoops "\n[✖] Could not clone repository.\n"
 			whoops_subtext "    $OUTPUT\n"
