@@ -1,4 +1,8 @@
 install() {
+	echo "Give GitHub username: "
+	read username
+	git config --global gg.username \"$username\"
+	
 	printf "\e[33m[~] Downloading script...\e[0m\n"
 
 	curl -L#o /var/tmp/gg_$$ https://raw.githubusercontent.com/jherrane/gg/master/bin/gg
