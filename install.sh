@@ -1,7 +1,7 @@
 install() {
 	echo "Give GitHub username: "
 	read username
-	git config --global gg.username \"$username\"
+	git config --global gg.username $username
 	
 	printf "\e[33m[~] Downloading script...\e[0m\n"
 

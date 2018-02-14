@@ -231,7 +231,7 @@ clone() {
 	else
 		URL=(${1//:/ })
 		PROTOCOL=${URL[0]}
-		username="$(git config --get gg.username)"
+		username=$(git config --get gg.username)
 		
 		if [ "${URL[1]:0:2}" != "//" ] && [ "$PROTOCOL" != "ssh" ]; then
 			if [ -n "$username" ] && [[ ${URL[@]} != *\/* ]]; then
